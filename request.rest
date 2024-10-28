@@ -1,0 +1,60 @@
+### CREATE USERS 
+POST http://localhost:6789/api/v1/users/register HTTP/1.1
+content-type: application/json
+
+{
+    "name": "lala",
+    "email": "lala@gmail.com",
+    "password": "1234"
+}
+
+### login USERS 
+POST http://localhost:6789/api/v1/users/login HTTP/1.1
+content-type: application/json
+
+{
+     "email": "kenneth@gmail.com",
+    "password": "1234"
+}
+
+### all USERS 
+GET http://localhost:6789/api/v1/users/all HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhlOGM2NzQ5LTAwYzEtNGQ4My05ODhlLWFlNWM1NzUyNTUwZCIsImVtYWlsIjoia2VubmV0aEBnbWFpbC5jb20iLCJpYXQiOjE3MzAxNDk3MDEsImV4cCI6MTczMDE1MTUwMX0.uQ25Vu4ocl-Mza0GwPbT0tvSIKL1q_0PXJVd9MVSaCM
+
+### single USER
+GET http://localhost:6789/api/v1/users/b4b639d0-7015-468a-8cb3-dac7715fea2f HTTP/1.1
+content-type: application/json
+
+### myprofile USER
+GET http://localhost:6789/api/v1/users/myprofile HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer yJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI0YjYzOWQwLTcwMTUtNDY4YS04Y2IzLWRhYzc3MTVmZWEyZiIsImVtYWlsIjoibGFsYUBnbWFpbC5jb20iLCJpYXQiOjE3MzAxNDY3NDcsImV4cCI6MTczMDE0ODU0N30.zMU3lGrh_B6p9Zb3TLv5pD1BNWxhl_6vBqNvGiJhRBA
+
+
+# ### login USERS 
+# POST http://localhost:6789/api/v1/users/login HTTP/1.1
+# Content-Type: application/xml
+# Authorization: token xxx
+# {
+#      "email": "lala@gmail.com",
+#     "password": "1234"
+# }
+
+
+# ### CREATE USERS 
+# POST http://localhost:6789/api/v1/ HTTP/1.1
+# content-type: application/json
+
+# {
+#     "name": "sample",
+#     "time": "Wed, 21 Oct 2015 18:27:50 GMT"
+# }
+# ### CREATE USERS 
+# POST http://localhost:6789/api/v1/ HTTP/1.1
+# content-type: application/json
+
+# {
+#     "name": "sample",
+#     "time": "Wed, 21 Oct 2015 18:27:50 GMT"
+# }
