@@ -3,8 +3,8 @@ POST http://localhost:6789/api/v1/users/register HTTP/1.1
 content-type: application/json
 
 {
-    "name": "lala",
-    "email": "lala@gmail.com",
+    "name": "kenneth",
+    "email": "kenneth@gmail.com",
     "password": "1234"
 }
 
@@ -32,24 +32,86 @@ Content-Type: application/json
 Authorization: Bearer yJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI0YjYzOWQwLTcwMTUtNDY4YS04Y2IzLWRhYzc3MTVmZWEyZiIsImVtYWlsIjoibGFsYUBnbWFpbC5jb20iLCJpYXQiOjE3MzAxNDY3NDcsImV4cCI6MTczMDE0ODU0N30.zMU3lGrh_B6p9Zb3TLv5pD1BNWxhl_6vBqNvGiJhRBA
 
 
-# ### login USERS 
-# POST http://localhost:6789/api/v1/users/login HTTP/1.1
-# Content-Type: application/xml
-# Authorization: token xxx
-# {
-#      "email": "lala@gmail.com",
-#     "password": "1234"
-# }
+### create categories  
+POST http://localhost:6789/api/v1/categories HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE3MzY1YWY1LTY1OWEtNDAxZC1hMTZiLWY5NDEyZjRhZTk0MiIsImVtYWlsIjoia2VubmV0aEBnbWFpbC5jb20iLCJpYXQiOjE3MzAzOTk0NzIsImV4cCI6MTczMDQwMTI3Mn0.Vr4BX6XYtX8UUSB7wa8zm2zTYbAqy-byRkB5lvXASh8
+
+{
+    "title": "category 2",
+    "description": "Like cat.... 2"
+}
+
+### single category 
+GET http://localhost:6789/api/v1/categories/a88ad80c-4e69-4f55-89f6-b1ab6a080f55 HTTP/1.1
+Content-Type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhlOGM2NzQ5LTAwYzEtNGQ4My05ODhlLWFlNWM1NzUyNTUwZCIsImVtYWlsIjoia2VubmV0aEBnbWFpbC5jb20iLCJpYXQiOjE3MzAyMzIzMDIsImV4cCI6MTczMDIzNDEwMn0.AD0XnTL7pHPAF1o1ph5DVUFqspX_Qq8Po9yFihzAMdM
+
+### ALL categoRIES
+GET http://localhost:6789/api/v1/categories HTTP/1.1
+Content-Type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhlOGM2NzQ5LTAwYzEtNGQ4My05ODhlLWFlNWM1NzUyNTUwZCIsImVtYWlsIjoia2VubmV0aEBnbWFpbC5jb20iLCJpYXQiOjE3MzAyMzIzMDIsImV4cCI6MTczMDIzNDEwMn0.AD0XnTL7pHPAF1o1ph5DVUFqspX_Qq8Po9yFihzAMdM
+
+### update categories  
+PATCH http://localhost:6789/api/v1/categories/a88ad80c-4e69-4f55-89f6-b1ab6a080f55 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhlOGM2NzQ5LTAwYzEtNGQ4My05ODhlLWFlNWM1NzUyNTUwZCIsImVtYWlsIjoia2VubmV0aEBnbWFpbC5jb20iLCJpYXQiOjE3MzAyMzIzMDIsImV4cCI6MTczMDIzNDEwMn0.AD0XnTL7pHPAF1o1ph5DVUFqspX_Qq8Po9yFihzAMdM
+
+{
+    "title": "category 1 modify",
+    "description": "Like cat.... modified"
+}
+
+### CREATE products 
+POST http://localhost:6789/api/v1/products HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE3MzY1YWY1LTY1OWEtNDAxZC1hMTZiLWY5NDEyZjRhZTk0MiIsImVtYWlsIjoia2VubmV0aEBnbWFpbC5jb20iLCJpYXQiOjE3MzAzOTk0NzIsImV4cCI6MTczMDQwMTI3Mn0.Vr4BX6XYtX8UUSB7wa8zm2zTYbAqy-byRkB5lvXASh8
+
+{
+    "title": "prod 2",
+    "description": "Wdesc 2 ......",
+    "price": 260.00,
+    "stock": 14,
+    "images": ["img1","img2","img3"],
+    "categoryId": "d2d64258-f28d-426f-af7b-08acfb6fad35"
+}
+
+### update products 
+PATCH http://localhost:6789/api/v1/products/76e494ce-a7fb-41fb-a0d7-ce8aa3bd39c7 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE3MzY1YWY1LTY1OWEtNDAxZC1hMTZiLWY5NDEyZjRhZTk0MiIsImVtYWlsIjoia2VubmV0aEBnbWFpbC5jb20iLCJpYXQiOjE3MzA0MDIxNzgsImV4cCI6MTczMDQwMzk3OH0.eVYZIlNV2PFV7MJL9Uzx7mWdXKymiNOa_MtgmInIclI
+
+{
+    "title": "prod 2222",
+    "description": "Wdesc 22222 ......",
+    "price": 260.00,
+    "stock": 14,
+    "images": ["img1","img2","img3"],
+    "categoryId": "e2d64258-f28d-426f-af7b-08acfb6fad35"
+}
+
+### ALL products
+GET http://localhost:6789/api/v1/products HTTP/1.1
+Content-Type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhlOGM2NzQ5LTAwYzEtNGQ4My05ODhlLWFlNWM1NzUyNTUwZCIsImVtYWlsIjoia2VubmV0aEBnbWFpbC5jb20iLCJpYXQiOjE3MzAyMzIzMDIsImV4cCI6MTczMDIzNDEwMn0.AD0XnTL7pHPAF1o1ph5DVUFqspX_Qq8Po9yFihzAMdM
+
+### single product
+GET http://localhost:6789/api/v1/products/76e494ce-a7fb-41fb-a0d7-ce8aa3bd39c7 HTTP/1.1
+Content-Type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhlOGM2NzQ5LTAwYzEtNGQ4My05ODhlLWFlNWM1NzUyNTUwZCIsImVtYWlsIjoia2VubmV0aEBnbWFpbC5jb20iLCJpYXQiOjE3MzAyMzIzMDIsImV4cCI6MTczMDIzNDEwMn0.AD0XnTL7pHPAF1o1ph5DVUFqspX_Qq8Po9yFihzAMdM
 
 
-# ### CREATE USERS 
-# POST http://localhost:6789/api/v1/ HTTP/1.1
-# content-type: application/json
+### CREATE reviews 
+POST http://localhost:6789/api/v1/reviews HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE3MzY1YWY1LTY1OWEtNDAxZC1hMTZiLWY5NDEyZjRhZTk0MiIsImVtYWlsIjoia2VubmV0aEBnbWFpbC5jb20iLCJpYXQiOjE3MzAzOTk0NzIsImV4cCI6MTczMDQwMTI3Mn0.Vr4BX6XYtX8UUSB7wa8zm2zTYbAqy-byRkB5lvXASh8
 
-# {
-#     "name": "sample",
-#     "time": "Wed, 21 Oct 2015 18:27:50 GMT"
-# }
+{
+    "productID": "76e494ce-a7fb-41fb-a0d7-ce8aa3bd39c7",
+    "rating": 2,
+    "comment": "comment 2"
+}
+
 # ### CREATE USERS 
 # POST http://localhost:6789/api/v1/ HTTP/1.1
 # content-type: application/json

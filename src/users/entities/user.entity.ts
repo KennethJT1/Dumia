@@ -1,5 +1,8 @@
+import { CategoryEntity } from "src/categories/entities/category.entity";
+import { ProductEntity } from "src/products/entities/product.entity";
+import { ReviewEntity } from "src/reviews/entities/review.entity";
 import { Roles } from "src/utilities/common/user-role.enum";
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, Timestamp, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, Timestamp, UpdateDateColumn } from "typeorm";
 import { v4 as uuidv4 } from 'uuid';
 
 
@@ -25,4 +28,13 @@ export class UserEntity {
 
     @UpdateDateColumn()
     updatedAt: Timestamp;
+
+    @OneToMany(() => CategoryEntity, (category) => category.addedBy)
+    categories: CategoryEntity[]
+
+    @OneToMany(() => ProductEntity, (prod) => prod.addedBy)
+    products: ProductEntity[]
+
+    @OneToMany(() => ReviewEntity, (rev) => rev.user)
+    reviews: ReviewEntity[]
 }

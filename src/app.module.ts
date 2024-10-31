@@ -4,9 +4,12 @@ import { dataSourceOptions } from 'database/data-source';
 import { UsersModule } from './users/users.module';
 import { CurrentUserMiddleware } from './utilities/middlewares/current-user.middlewares';
 import { UsersController } from './users/users.controller';
+import { CategoriesModule } from './categories/categories.module';
+import { ProductsModule } from './products/products.module';
+import { ReviewsModule } from './reviews/reviews.module';
 
 @Module({
-  imports: [TypeOrmModule.forRoot(dataSourceOptions), UsersModule],
+  imports: [TypeOrmModule.forRoot(dataSourceOptions), UsersModule, CategoriesModule, ProductsModule, ReviewsModule],
 })
 export class AppModule {
   configure(consumer: MiddlewareConsumer) {
