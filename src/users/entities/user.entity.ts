@@ -1,4 +1,5 @@
 import { CategoryEntity } from "src/categories/entities/category.entity";
+import { OrderEntity } from "src/orders/entities/order.entity";
 import { ProductEntity } from "src/products/entities/product.entity";
 import { ReviewEntity } from "src/reviews/entities/review.entity";
 import { Roles } from "src/utilities/common/user-role.enum";
@@ -37,4 +38,7 @@ export class UserEntity {
 
     @OneToMany(() => ReviewEntity, (rev) => rev.user)
     reviews: ReviewEntity[]
+
+    @OneToMany(() => OrderEntity, (ord) => ord.updatedBy)
+    orderUpdatedBy: OrderEntity[]
 }

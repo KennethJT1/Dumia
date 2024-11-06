@@ -20,7 +20,7 @@ content-type: application/json
 ### all USERS 
 GET http://localhost:6789/api/v1/users/all HTTP/1.1
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhlOGM2NzQ5LTAwYzEtNGQ4My05ODhlLWFlNWM1NzUyNTUwZCIsImVtYWlsIjoia2VubmV0aEBnbWFpbC5jb20iLCJpYXQiOjE3MzAxNDk3MDEsImV4cCI6MTczMDE1MTUwMX0.uQ25Vu4ocl-Mza0GwPbT0tvSIKL1q_0PXJVd9MVSaCM
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE3MzY1YWY1LTY1OWEtNDAxZC1hMTZiLWY5NDEyZjRhZTk0MiIsImVtYWlsIjoia2VubmV0aEBnbWFpbC5jb20iLCJpYXQiOjE3MzA4Mjc5MzMsImV4cCI6MTczMDgyOTczM30.hcl5xqTFIdrY_Ubs88HtOesvpjKgnrI7otZdmDqagJc
 
 ### single USER
 GET http://localhost:6789/api/v1/users/b4b639d0-7015-468a-8cb3-dac7715fea2f HTTP/1.1
@@ -104,13 +104,31 @@ Content-Type: application/json
 ### CREATE reviews 
 POST http://localhost:6789/api/v1/reviews HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE3MzY1YWY1LTY1OWEtNDAxZC1hMTZiLWY5NDEyZjRhZTk0MiIsImVtYWlsIjoia2VubmV0aEBnbWFpbC5jb20iLCJpYXQiOjE3MzAzOTk0NzIsImV4cCI6MTczMDQwMTI3Mn0.Vr4BX6XYtX8UUSB7wa8zm2zTYbAqy-byRkB5lvXASh8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE2MzViNjRhLWQ0ZTgtNGVhMC05YmYwLTA0ZmVmYTJlNDgzNiIsImVtYWlsIjoibGFsYUBnbWFpbC5jb20iLCJpYXQiOjE3MzA4Mjc5NzYsImV4cCI6MTczMDgyOTc3Nn0.djVznqxkqILeskPLzGhJhGW--lpjML-HDKeqy9BaLb0
 
 {
-    "productID": "76e494ce-a7fb-41fb-a0d7-ce8aa3bd39c7",
-    "rating": 2,
-    "comment": "comment 2"
+    "productId": "76e494ce-a7fb-41fb-a0d7-ce8aa3bd39c7",
+    "rating": 4,
+    "comment": "the product is good"
 }
+
+### single review
+GET http://localhost:6789/api/v1/reviews/719af172-32fe-48ba-9564-f8a8ad61f82c HTTP/1.1
+Content-Type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhlOGM2NzQ5LTAwYzEtNGQ4My05ODhlLWFlNWM1NzUyNTUwZCIsImVtYWlsIjoia2VubmV0aEBnbWFpbC5jb20iLCJpYXQiOjE3MzAyMzIzMDIsImV4cCI6MTczMDIzNDEwMn0.AD0XnTL7pHPAF1o1ph5DVUFqspX_Qq8Po9yFihzAMdM
+
+
+### delete single review
+DELETE http://localhost:6789/api/v1/reviews/719af172-32fe-48ba-9564-f8a8ad61f82c HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE3MzY1YWY1LTY1OWEtNDAxZC1hMTZiLWY5NDEyZjRhZTk0MiIsImVtYWlsIjoia2VubmV0aEBnbWFpbC5jb20iLCJpYXQiOjE3MzA5MTM2MjQsImV4cCI6MTczMDkxNTQyNH0.WXkoqlxMbLrpWBQ5MPLlf0IHvuhdqQ1szJL4AHmwkO4
+
+
+### all reviews for a perticular product
+GET http://localhost:6789/api/v1/reviews/719af172-32fe-48ba-9564-f8a8ad61f82c HTTP/1.1
+Content-Type: application/json
+
+
 
 # ### CREATE USERS 
 # POST http://localhost:6789/api/v1/ HTTP/1.1
