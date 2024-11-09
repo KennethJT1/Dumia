@@ -13,7 +13,7 @@ POST http://localhost:6789/api/v1/users/login HTTP/1.1
 content-type: application/json
 
 {
-     "email": "lala@gmail.com",
+     "email": "kenneth@gmail.com",
     "password": "1234"
 }
 
@@ -65,15 +65,15 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhlOGM2NzQ5L
 ### CREATE products 
 POST http://localhost:6789/api/v1/products HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE3MzY1YWY1LTY1OWEtNDAxZC1hMTZiLWY5NDEyZjRhZTk0MiIsImVtYWlsIjoia2VubmV0aEBnbWFpbC5jb20iLCJpYXQiOjE3MzAzOTk0NzIsImV4cCI6MTczMDQwMTI3Mn0.Vr4BX6XYtX8UUSB7wa8zm2zTYbAqy-byRkB5lvXASh8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE3MzY1YWY1LTY1OWEtNDAxZC1hMTZiLWY5NDEyZjRhZTk0MiIsImVtYWlsIjoia2VubmV0aEBnbWFpbC5jb20iLCJpYXQiOjE3MzExNTQwMTYsImV4cCI6MTczMTE1NTgxNn0.vnVTq0mkM2kh9-dBAjUjN3RPE_gYdKrGO9cPPkw-smk
 
 {
-    "title": "prod 2",
-    "description": "Wdesc 2 ......",
-    "price": 260.00,
-    "stock": 14,
+    "title": "prod 8",
+    "description": "Wdesc 8......",
+    "price": 470.00,
+    "stock": 61,
     "images": ["img1","img2","img3"],
-    "categoryId": "d2d64258-f28d-426f-af7b-08acfb6fad35"
+    "categoryId": "2dd50c9d-9d05-4a8d-b357-6a863b56feb0"
 }
 
 ### update products 
@@ -91,7 +91,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE3MzY1YWY1L
 }
 
 ### ALL products
-GET http://localhost:6789/api/v1/products HTTP/1.1
+GET http://localhost:6789/api/v1/products?limit=2&offset=2 HTTP/1.1
 Content-Type: application/json
 # Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhlOGM2NzQ5LTAwYzEtNGQ4My05ODhlLWFlNWM1NzUyNTUwZCIsImVtYWlsIjoia2VubmV0aEBnbWFpbC5jb20iLCJpYXQiOjE3MzAyMzIzMDIsImV4cCI6MTczMDIzNDEwMn0.AD0XnTL7pHPAF1o1ph5DVUFqspX_Qq8Po9yFihzAMdM
 
@@ -104,7 +104,7 @@ Content-Type: application/json
 ### CREATE reviews 
 POST http://localhost:6789/api/v1/reviews HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE2MzViNjRhLWQ0ZTgtNGVhMC05YmYwLTA0ZmVmYTJlNDgzNiIsImVtYWlsIjoibGFsYUBnbWFpbC5jb20iLCJpYXQiOjE3MzA4Mjc5NzYsImV4cCI6MTczMDgyOTc3Nn0.djVznqxkqILeskPLzGhJhGW--lpjML-HDKeqy9BaLb0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE2MzViNjRhLWQ0ZTgtNGVhMC05YmYwLTA0ZmVmYTJlNDgzNiIsImVtYWlsIjoibGFsYUBnbWFpbC5jb20iLCJpYXQiOjE3MzExNTM3MzAsImV4cCI6MTczMTE1NTUzMH0.1RrO6QUOtA_z0j1rWraH4jLkwnU27NKbRQCcdz6Toeg
 
 {
     "productId": "76e494ce-a7fb-41fb-a0d7-ce8aa3bd39c7",
@@ -133,7 +133,7 @@ Content-Type: application/json
 ### CREATE ORDERS 
 POST http://localhost:6789/api/v1/orders HTTP/1.1
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE2MzViNjRhLWQ0ZTgtNGVhMC05YmYwLTA0ZmVmYTJlNDgzNiIsImVtYWlsIjoibGFsYUBnbWFpbC5jb20iLCJpYXQiOjE3MzA5OTk4NDMsImV4cCI6MTczMTAwMTY0M30.qBOstYdsxTPzjXVulDqunUR-hPSrIC4_zsMRzRKGgeY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE2MzViNjRhLWQ0ZTgtNGVhMC05YmYwLTA0ZmVmYTJlNDgzNiIsImVtYWlsIjoibGFsYUBnbWFpbC5jb20iLCJpYXQiOjE3MzExNDM1OTcsImV4cCI6MTczMTE0NTM5N30.0PazCMIVVav4cjtvpqkYO_iVwSuj2Riv_r6OOb2-92w
 
 {
     "shippedAddress": {
@@ -148,15 +148,37 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE2MzViNjRhL
     "orderedProducts":[{
         "id": "76e494ce-a7fb-41fb-a0d7-ce8aa3bd39c7",
         "product_unit_price": 260.00,
-        "product_quantity": 7
+        "product_quantity": 4
     },
     {
           "id": "fe1c67bd-3e69-4ac2-b410-8ede634126f8",
         "product_unit_price": 260.00,
-        "product_quantity": 9
+        "product_quantity": 16
     }]
 }
 
 ### single order
 GET http://localhost:6789/api/v1/orders/719af172-32fe-48ba-9564-f8a8ad61f82c HTTP/1.1
 Content-Type: application/json
+
+### all orders
+GET http://localhost:6789/api/v1/orders HTTP/1.1
+Content-Type: application/json
+
+### update orders status
+PUT http://localhost:6789/api/v1/orders/0176d6a4-b303-4c06-93a3-7a83aa7558f2 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE3MzY1YWY1LTY1OWEtNDAxZC1hMTZiLWY5NDEyZjRhZTk0MiIsImVtYWlsIjoia2VubmV0aEBnbWFpbC5jb20iLCJpYXQiOjE3MzExNDk2MzAsImV4cCI6MTczMTE1MTQzMH0.DPzKugUwqG7uQK9pfhuVNWAGkgIP42JK0IIrStsbRvw
+
+{
+    "status": "delivered"
+}
+
+### cancel orders
+PUT http://localhost:6789/api/v1/orders/cancel/0176d6a4-b303-4c06-93a3-7a83aa7558f2 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE3MzY1YWY1LTY1OWEtNDAxZC1hMTZiLWY5NDEyZjRhZTk0MiIsImVtYWlsIjoia2VubmV0aEBnbWFpbC5jb20iLCJpYXQiOjE3MzExNDk2MzAsImV4cCI6MTczMTE1MTQzMH0.DPzKugUwqG7uQK9pfhuVNWAGkgIP42JK0IIrStsbRvw
+
+{
+    "status": "cancelled"
+}
