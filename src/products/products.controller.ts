@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, Query } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, Query, UseInterceptors } from '@nestjs/common';
 import { ProductsService } from './products.service';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
@@ -8,6 +8,8 @@ import { Roles } from 'src/utilities/common/user-role.enum';
 import { User } from 'src/utilities/decorators/current-user.decorator';
 import { UserEntity } from 'src/users/entities/user.entity';
 import { ProductEntity } from './entities/product.entity';
+import { SerializeIncludes } from 'src/utilities/interceptors/serialize.interceptor';
+import { ProductsDto } from './dto/products.dto';
 
 @Controller('products')
 export class ProductsController {
@@ -19,8 +21,12 @@ export class ProductsController {
     return await this.productsService.create(createProductDto, currentUser);
   }  
 
+  @SerializeIncludes(ProductsDto)
   @Get()
-  async findAll(@Query() query:any): Promise<any> {
+  async findAll(@Query() query:any): Promise<{
+    totalProducts: number;
+    limit: number;
+    products: any[]}> {
     return await this.productsService.findAll(query);
   }
 
@@ -35,9 +41,8 @@ export class ProductsController {
     return await this.productsService.update(id, currentUser, updateProductDto);
   }
 
-  @UseGuards(AuthenticationGuard, AuthorizationGuard([Roles.ADMIN]))
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.productsService.remove(+id);
+  async remove(@Param('id') id: string) {
+    return await this.productsService.remove(id);
   }
 }

@@ -1,11 +1,9 @@
-import { ForbiddenException, Injectable, NotFoundException } from '@nestjs/common';
+import { ForbiddenException, forwardRef, Inject, Injectable, NotFoundException } from '@nestjs/common';
 import { CreateOrderDto } from './dto/create-order.dto';
-import { UpdateOrderDto } from './dto/update-order.dto';
 import { UserEntity } from 'src/users/entities/user.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { OrderEntity } from './entities/order.entity';
 import { Repository } from 'typeorm';
-import { UsersService } from 'src/users/users.service';
 import { OrdersProductsEntity } from './entities/orders-products.entity';
 import { ShippingEntity } from './entities/shipping.entity';
 import { ProductEntity } from 'src/products/entities/product.entity';
@@ -21,6 +19,7 @@ export class OrdersService {
 
     @InjectRepository(OrdersProductsEntity)
     private readonly opRepository: Repository<OrdersProductsEntity>,
+    @Inject(forwardRef(()=> ProductsService))
     private readonly productService: ProductsService
   ) { }
 
@@ -146,5 +145,12 @@ export class OrdersService {
     for (const orderProduct of order.products) {
       await this.productService.updateStock(orderProduct.product.id, orderProduct.product_quantity, status)
     }
+  }
+
+  async findOneByProductId(id: string) {
+    return await this.opRepository.findOne({
+      where: { product: { id } },
+      relations: { product: true }
+    })
   }
 }
