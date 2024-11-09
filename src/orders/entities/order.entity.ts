@@ -16,10 +16,10 @@ export class OrderEntity {
     status: string;
 
     @Column({ nullable: true })
-    shipped: Date;
+    shippingAt: Date;
 
     @Column({ nullable: true })
-    delivered: Date
+    deliveredAt: Date
 
     @ManyToOne(() => UserEntity, (user) => user.orderUpdatedBy)
     updatedBy: UserEntity
@@ -30,4 +30,7 @@ export class OrderEntity {
 
     @OneToMany(() => OrdersProductsEntity, (ordProd) => ordProd.order, { cascade: true })
     products: OrdersProductsEntity[]
+
+    @ManyToOne(() => UserEntity, (user) => user.orders)
+    user: UserEntity
 }

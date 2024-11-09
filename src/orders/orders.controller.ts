@@ -1,15 +1,19 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards } from '@nestjs/common';
 import { OrdersService } from './orders.service';
 import { CreateOrderDto } from './dto/create-order.dto';
 import { UpdateOrderDto } from './dto/update-order.dto';
+import { AuthenticationGuard } from 'src/utilities/guards/authentication.guard';
+import { UserEntity } from 'src/users/entities/user.entity';
+import { User } from 'src/utilities/decorators/current-user.decorator';
 
 @Controller('orders')
 export class OrdersController {
-  constructor(private readonly ordersService: OrdersService) {}
+  constructor(private readonly ordersService: OrdersService) { }
 
+  @UseGuards(AuthenticationGuard)
   @Post()
-  create(@Body() createOrderDto: CreateOrderDto) {
-    return this.ordersService.create(createOrderDto);
+  async create(@Body() createOrderDto: CreateOrderDto, @User() currentUser: UserEntity) {
+    return await this.ordersService.create(createOrderDto, currentUser);
   }
 
   @Get()
@@ -18,8 +22,8 @@ export class OrdersController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.ordersService.findOne(+id);
+  async findOne(@Param('id') id: string) {
+    return await this.ordersService.findOne(id);
   }
 
   @Patch(':id')

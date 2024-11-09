@@ -6,23 +6,27 @@ export class ShippingEntity {
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
-    @Column({default: " "}) 
+    @Column({ default: " " })
     name: string;
 
-    @Column() 
+    @Column()
     address: string;
 
-    @Column() 
+    @Column()
+    phone: string;
+
+    @Column()
     city: string;
 
-    @Column() 
+    @Column()
     postCode: string;
 
-    @Column() 
+    @Column()
     state: string;
 
-    @Column() 
+    @Column()
     country: string;
-    @OneToOne(()=>OrderEntity, (ord)=> ord.shippedAddress)
+
+    @OneToOne(() => OrderEntity, (ord) => ord.shippedAddress)
     order: OrderEntity;
 }

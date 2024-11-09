@@ -13,7 +13,7 @@ POST http://localhost:6789/api/v1/users/login HTTP/1.1
 content-type: application/json
 
 {
-     "email": "kenneth@gmail.com",
+     "email": "lala@gmail.com",
     "password": "1234"
 }
 
@@ -130,11 +130,33 @@ Content-Type: application/json
 
 
 
-# ### CREATE USERS 
-# POST http://localhost:6789/api/v1/ HTTP/1.1
-# content-type: application/json
+### CREATE ORDERS 
+POST http://localhost:6789/api/v1/orders HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE2MzViNjRhLWQ0ZTgtNGVhMC05YmYwLTA0ZmVmYTJlNDgzNiIsImVtYWlsIjoibGFsYUBnbWFpbC5jb20iLCJpYXQiOjE3MzA5OTk4NDMsImV4cCI6MTczMTAwMTY0M30.qBOstYdsxTPzjXVulDqunUR-hPSrIC4_zsMRzRKGgeY
 
-# {
-#     "name": "sample",
-#     "time": "Wed, 21 Oct 2015 18:27:50 GMT"
-# }
+{
+    "shippedAddress": {
+        "name": "Andrew Stewart",
+        "phone": "+2349098787654",
+        "address": "123 Main St",
+        "city": "Anytown",
+        "postCode": "12345",
+        "state": "CA",
+        "country": "USA"
+    },
+    "orderedProducts":[{
+        "id": "76e494ce-a7fb-41fb-a0d7-ce8aa3bd39c7",
+        "product_unit_price": 260.00,
+        "product_quantity": 7
+    },
+    {
+          "id": "fe1c67bd-3e69-4ac2-b410-8ede634126f8",
+        "product_unit_price": 260.00,
+        "product_quantity": 9
+    }]
+}
+
+### single order
+GET http://localhost:6789/api/v1/orders/719af172-32fe-48ba-9564-f8a8ad61f82c HTTP/1.1
+Content-Type: application/json
